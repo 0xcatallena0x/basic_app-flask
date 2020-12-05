@@ -1,0 +1,50 @@
+{% extends "auth_page.html" %}
+{% block content %}
+	{% with messages = get_flashed_messages() %} 
+		{% if messages %}
+			<ul class="flashes">
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+		{% endif %}
+	{% endwith %}
+<div id="registration_form">
+	<form action="" method="POST" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.username.label}} <br>
+			{{ form.username }}
+		
+		</p>
+		{% for error in form.username.errors%}
+			<span style="color: red;">[{{ error }}] </span>
+		{% endfor %}
+		<p>
+			{{ form.firstName.label }} <br>
+			{{ form.firstName }}
+		</p>
+		{% for error in form.firstName.errors %}
+			<span style="color: red;">[{{ error }}] </span>
+		{% endfor %}
+		<p>
+			{{ form.lastName.label }} <br>
+			{{ form.lastName }}
+		</p>
+		{% for error in form.lastName.errors %}
+			<span style="color: red;">[{{ error }}] </span>
+		{% endfor %}
+		<p>
+			{{ form.password.label }} <br>
+			{{ form.password }}
+		</p>
+		{% for error in form.password.errors %}
+			<span style="color: red;">[{{ error }}] </span>
+		{% endfor %}
+		<p>
+			{{ form.confirmPassword.label }} <br>
+			{{ form.confirmPassword }} 
+		</p>
+		{{ form.submit }}
+	</form>
+</div>
+{% endblock %}

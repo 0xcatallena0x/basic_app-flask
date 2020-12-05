@@ -1,0 +1,17 @@
+{% extends "auth_page.html" %}
+{% block content %}
+<div id="login_form">
+	<form action="" method="POST" novalidate="" >
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.username.label }} <br>
+			{{ form.username }}
+		</p>
+		<p>
+			{{ form.password.label}} <br>
+			{{ form.password }}
+		</p>
+		{{ form.submit }}
+	</form>
+</div>
+{% endblock %}
